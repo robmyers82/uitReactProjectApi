@@ -1,0 +1,17 @@
+{
+  "name": "uitReactProjectApi",
+  "version": "1.0.0",
+  "description": "A companion project for developing your React Project.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robmyers82/uitReactProjectApi"
+  },
+  "author": "Rob Myers",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.2"
+  }
+}
