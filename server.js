@@ -165,26 +165,6 @@ referencesRouter.route("/addNote/:refId")
         }
     });
 
-referencesRouter.route("/removeNote/:noteId")
-    .delete(function(req,res){
-        var response = {};
-        Note.findById(req.params.noteId,function(err,data){
-            if(err) {
-                response = {"error" : true,"message" : "Error fetching data"};
-            } else {
-                Note.remove({_id : req.params.noteId},function(err){
-                    if(err) {
-                        response = {"error" : true,"message" : "Error deleting data"};
-                    } else {
-                        response = {"error" : true,"message" : "Data deleted"};
-                    }
-                    res.json(response);
-                });
-            }
-        });
-    });
-
-
 
 referencesRouter.route("/ref/:refId")
     .get(function(req,res){
