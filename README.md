@@ -3,7 +3,8 @@
 **Instructions**
 
 1. Download the code and run npm install
-2. The following routes are available to you:
+2. Run 'node server.js'
+3. The following routes are available to you:
   - GET /categories - get all reference categories
   - POST /categories - add a new category
   - GET /categories/<categoryID> - get the information for the specific category
