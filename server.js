@@ -17,6 +17,56 @@ app.use(function(req, res, next) {
     next();
 });
 
+var gamesRouter      =   express.Router();
+
+gamesRouter.route("/")
+    .get(function(req, res) {
+
+    var gamesList = [
+            {
+                id: 1,
+                title: "Final Fantasy XV",
+                description: "Final Fantasy XV is an open world action role-playing video game developed and published by Square Enix for the PlayStation 4 and Xbox One home consoles.",
+                photo: "http://cdn.wegotthiscovered.com/wp-content/uploads/2016/08/Final-Fantasy-XV-Wallpaper-Pictures.jpg",
+                comments: []
+            },
+            {
+                id: 2,
+                title: "Doom",
+                description: "Doom is a first-person shooter video game developed by id Software and published by Bethesda Softworks.",
+                photo: "http://www.roadtovr.com/wp-content/uploads/2016/06/doom-2016-vr.jpg",
+                comments: ["Awesome Game!", "This game sucks"]
+            },
+            {
+                id: 3,
+                title: "Street Fighter V",
+                description: "Street Fighter V is a fighting video game developed by Capcom and Dimps. It is the sixth main numbered entry in the Street Fighter series.",
+                photo: "http://www.fightersgeneration.com/nz3/game/sf5-ryu-key-artwork.jpg",
+                comments: []
+            },
+            {
+                id: 4,
+                title: "NHL 17",
+                description: "NHL 17 lets players hit the ice for another season of hockey!",
+                photo: "http://multijoueur.ca/wp-content/uploads/2016/09/NHL-2017-avant-menu-933x445.jpg",
+                comments: []
+            },
+            {
+                id: 5,
+                title: "Rocket League",
+                description: "Rocket League is a vehicular soccer video game developed and published by Psyonix. The game was first released for Microsoft Windows and PlayStation 4 in July 2015, with ports for Xbox One, OS X, and Linux being released in 2016.",
+                photo: "http://cdn.edgecast.steamstatic.com/steam/apps/252950/header.jpg?t=1487806299",
+                comments: []
+            }
+        ];
+
+    var jsonStr = {
+        "games": gamesList
+    };
+
+    res.json(jsonStr);
+});
+
 categoriesRouter.route("/")
     .get(function(req,res){
         var response = {};
@@ -233,6 +283,7 @@ referencesRouter.route("/ref/:refId")
         });
     })
 
+app.use('/games', gamesRouter);
 app.use('/categories', categoriesRouter);
 
 app.use('/references', referencesRouter);
